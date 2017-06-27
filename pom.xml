@@ -27,8 +27,8 @@
 		</dependency>
 		<configuration>
 			<!-- http port -->
-			<port>${tomcat6.port}</port>
-			<path>${tomcat6.path}</path>
+			<port>8080</port>
+			<path>/</path>
 			<uriEncoding>utf-8</uriEncoding>
 			<ignorePackaging>true</ignorePackaging>
 			<systemProperties>
