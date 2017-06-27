@@ -24,33 +24,50 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<configuration>
+            <!-- http port -->
+            <port>8080</port>
+            <path>/</path>
+            <uriEncoding>utf-8</uriEncoding>
+            <ignorePackaging>true</ignorePackaging>
+            <systemProperties>
+                <JAVA_OPTS>-Xms256m -Xmx1024m -XX:MaxPermSize=256m</JAVA_OPTS>
+                </systemProperties>
+            </configuration>
 		</dependency>
-		<configuration>
-			<!-- http port -->
-			<port>8080</port>
-			<path>/</path>
-			<uriEncoding>utf-8</uriEncoding>
-			<ignorePackaging>true</ignorePackaging>
-			<systemProperties>
-				<JAVA_OPTS>-Xms256m -Xmx1024m -XX:MaxPermSize=256m</JAVA_OPTS>
-			</systemProperties>
-		</configuration>
+		<dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+        <!-- Janino是一种内嵌的开源Java编译器. Janino并不是一种提供给开发人员编译程序的编译器, 而是Java程序在运行时编译Java代码的编译器. -->
+        <dependency>
+            <groupId>janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>2.5.10</version>
+        </dependency>
+        
+        <!-- restfull -->
+        <dependency>  
+            <groupId>io.springfox</groupId>  
+            <artifactId>springfox-swagger2</artifactId>  
+            <version>2.4.0</version>  
+        </dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
-
 
 	<distributionManagement>
 		<repositories>
@@ -74,6 +91,11 @@
 				</snapshots>
 			</repository>
 		</repositories>
+		<snapshotRepository>
+            <id>snapshots</id>
+            <name>nexus-snapshots</name>
+            <url>http://itcentral.baozun.cn/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
 		<pluginRepositories>
 			<pluginRepository>
 				<id>spring-snapshots</id>
@@ -84,10 +106,6 @@
 				<url>http://repo.spring.io/milestone</url>
 			</pluginRepository>
 		</pluginRepositories>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<name>nexus-snapshots</name>
-			<url>http://itcentral.baozun.cn/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
+		
 	</distributionManagement>
 </project>
