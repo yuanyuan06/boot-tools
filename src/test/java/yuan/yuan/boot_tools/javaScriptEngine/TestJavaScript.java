@@ -8,6 +8,10 @@ import org.junit.Test;
 
 public class TestJavaScript {
 
+    /**
+     * 存在浮点运算精度问题
+     * @throws ScriptException
+     */
     @Test
     public void javaScriptEngine() throws ScriptException{
         ScriptEngine jse = new ScriptEngineManager().getEngineByName("JavaScript");
