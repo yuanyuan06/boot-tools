@@ -1,4 +1,4 @@
-package yuan.yuan.boot_tools;
+package yuan.yuan.boot_tools.groovyEngine;
 
 import java.io.IOException;
 
@@ -20,16 +20,15 @@ public class TestGroovy {
         GroovyShell shell = new GroovyShell(binding);
         Object value = shell.evaluate("println \"Welcome to $language\"; y = x * 2; z = x * 3; return z ");
         System.out.println(value);
+        Object value1 = shell.evaluate("z = 0.1+0.2 ; return z ");
+        System.out.println(value1);
     }
     
+    
+    
     @Test
-    public void testEngine(){
-        try {
-            GroovyScriptEngine engine = new GroovyScriptEngine("");
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public void testEngine() throws IOException{
+        GroovyScriptEngine engine = new GroovyScriptEngine("");
     }
     
     
