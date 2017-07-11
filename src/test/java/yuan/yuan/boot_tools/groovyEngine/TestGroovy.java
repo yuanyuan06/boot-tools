@@ -28,6 +28,7 @@ public class TestGroovy {
     
     @Test
     public void testEngine() throws IOException{
+        @SuppressWarnings("unused")
         GroovyScriptEngine engine = new GroovyScriptEngine("");
     }
     
