@@ -1,4 +1,4 @@
-package yuan.yuan.boot_tools.dbtest;
+package yuan.yuan.boot_tools.junit.dbtest;
 
 import java.util.Date;
 import java.util.List;

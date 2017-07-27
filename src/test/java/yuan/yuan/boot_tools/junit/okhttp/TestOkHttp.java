@@ -1,4 +1,4 @@
-package yuan.yuan.boot_tools.okhttp;
+package yuan.yuan.boot_tools.junit.okhttp;
 
 import org.junit.Test;
 

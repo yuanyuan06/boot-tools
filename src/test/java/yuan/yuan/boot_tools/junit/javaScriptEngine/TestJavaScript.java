@@ -1,4 +1,4 @@
-package yuan.yuan.boot_tools.javaScriptEngine;
+package yuan.yuan.boot_tools.junit.javaScriptEngine;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;

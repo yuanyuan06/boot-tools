@@ -1,4 +1,4 @@
-package yuan.yuan.boot_tools.aviator;
+package yuan.yuan.boot_tools.junit.aviator;
 
 import java.math.BigDecimal;
 
