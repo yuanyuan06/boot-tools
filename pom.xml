@@ -19,21 +19,45 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.4.RELEASE</version>
 	</parent>
-
+	
 	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+          
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8.7</version>
+			<scope>test</scope>
+		</dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+		<dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-all</artifactId>
+		    <version>1.10.19</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/springframework/spring-mock -->
+		<dependency>
+		    <groupId>springframework</groupId>
+		    <artifactId>spring-mock</artifactId>
+		    <version>1.2.6</version>
+		</dependency>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<configuration>
-            <!-- http port -->
-            <port>8080</port>
-            <path>/</path>
-            <uriEncoding>utf-8</uriEncoding>
-            <ignorePackaging>true</ignorePackaging>
-            <systemProperties>
-                <JAVA_OPTS>-Xms256m -Xmx1024m -XX:MaxPermSize=256m</JAVA_OPTS>
-                </systemProperties>
-            </configuration>
 		</dependency>
 		
 		<dependency>
@@ -41,26 +65,10 @@
             <artifactId>spring-jdbc</artifactId>
         </dependency>
 		
-		
-		 <dependency>
-	          <groupId>org.xerial</groupId>
-	          <artifactId>sqlite-jdbc</artifactId>
-	          <version>3.8.9</version>
-	     </dependency>
-		
-		 <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-          </dependency>
-          
-          
-         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.8.7</version>
-            <scope>test</scope>
-        </dependency>
-		
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+		</dependency>
 		<dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -72,15 +80,12 @@
             <artifactId>janino</artifactId>
             <version>2.5.10</version>
         </dependency>
-        
         <!-- restfull -->
         <dependency>  
             <groupId>io.springfox</groupId>  
             <artifactId>springfox-swagger2</artifactId>  
             <version>2.4.0</version>
         </dependency>
-        
-        
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
@@ -123,14 +128,6 @@
 		    <artifactId>okhttp</artifactId>
 		    <version>2.7.5</version>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
-		<dependency>
-		    <groupId>org.mockito</groupId>
-		    <artifactId>mockito-all</artifactId>
-		    <version>1.10.19</version>
-		    <scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -144,46 +141,62 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+			<plugin> 
+				<groupId>org.springframework.boot</groupId>  
+				<artifactId>spring-boot-maven-plugin</artifactId>  
+				<configuration> 
+					<executable>true</executable> 
+					<!-- 便签来源暂时不明 -->
+					<systemProperties>
+						<JAVA_OPTS>-Xms256m -Xmx1024m -XX:MaxPermSize=256m</JAVA_OPTS>
+					</systemProperties>
+					<systemPropertyVariables>
+						<JAVA_OPTS>-Xms256m -Xmx1024m -XX:MaxPermSize=256m</JAVA_OPTS>
+					</systemPropertyVariables>
+				</configuration> 
+			</plugin> 
 		</plugins>
 	</build>
+	
+	<repositories>
+		<repository>
+			<id>releases</id>
+			<name>nexus-releases</name>
+			<url>http://itcentral.baozun.cn/nexus/content/repositories/releases/</url>
+		</repository>
+		<repository>
+			<id>spring-snapshots</id>
+			<url>http://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<url>http://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+		
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<url>http://repo.spring.io/snapshot</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<url>http://repo.spring.io/milestone</url>
+		</pluginRepository>
+	</pluginRepositories>
+		
 
 	<distributionManagement>
-		<repositories>
-			<repository>
-				<id>releases</id>
-				<name>nexus-releases</name>
-				<url>http://itcentral.baozun.cn/nexus/content/repositories/releases/</url>
-			</repository>
-			<repository>
-				<id>spring-snapshots</id>
-				<url>http://repo.spring.io/snapshot</url>
-				<snapshots>
-					<enabled>true</enabled>
-				</snapshots>
-			</repository>
-			<repository>
-				<id>spring-milestones</id>
-				<url>http://repo.spring.io/milestone</url>
-				<snapshots>
-					<enabled>true</enabled>
-				</snapshots>
-			</repository>
-		</repositories>
 		<snapshotRepository>
-            <id>snapshots</id>
-            <name>nexus-snapshots</name>
-            <url>http://itcentral.baozun.cn/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-		<pluginRepositories>
-			<pluginRepository>
-				<id>spring-snapshots</id>
-				<url>http://repo.spring.io/snapshot</url>
-			</pluginRepository>
-			<pluginRepository>
-				<id>spring-milestones</id>
-				<url>http://repo.spring.io/milestone</url>
-			</pluginRepository>
-		</pluginRepositories>
-		
+			<id>snapshots</id>
+			<name>nexus-snapshots</name>
+			<url>http://itcentral.baozun.cn/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
 	</distributionManagement>
 </project>
