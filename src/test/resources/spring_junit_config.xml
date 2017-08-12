@@ -8,10 +8,9 @@
     					http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
 				        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 				        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
-        
 	 
 <!-- 	 <lang:groovy id="roleRule" refresh-check-delay="2000" script-source="classpath:groovyScripts/RoleRuleTemplet.groovy"> -->
-	 <lang:groovy id="roleRule" refresh-check-delay="2000" script-source="classpath:yuan/yuan/boot_tools/groovy/script/RoleRuleTemplet.groovy">
+	 <lang:groovy id="roleRule" refresh-check-delay="2000" script-source="classpath:yuan/yuan/boot_tools/groovy/script/RuleRoleTemplet.groovy">
         <!-- <lang:property name="message" value="I Can Do The Frug" /> -->
     </lang:groovy>
 </beans>

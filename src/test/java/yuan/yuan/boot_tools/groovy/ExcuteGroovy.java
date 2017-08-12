@@ -1,6 +1,7 @@
 package yuan.yuan.boot_tools.groovy;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -10,16 +11,23 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.scripting.ScriptSource;
 import org.springframework.scripting.support.ResourceScriptSource;
 
+import com.alibaba.fastjson.JSON;
+
 
 public class ExcuteGroovy {
 	
+	@SuppressWarnings("resource")
 	@Test
 	public void test() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring_junit_config.xml");
-		RoleRuleService rule = (RoleRuleService) context.getBean("roleRule");
-		while(true) {
-			rule.assignRole();
-		}
+		RuleRoleService rule = (RuleRoleService) context.getBean("roleRule");
+//		while(true) {
+			List<String> assignRole = rule.assignRole("任务3");
+			System.out.println(JSON.toJSONString(assignRole));
+			
+			String task = rule.findTaskByIncident("事件1");
+			System.out.println(task);
+//		}
 	}
 	
 	@Test
