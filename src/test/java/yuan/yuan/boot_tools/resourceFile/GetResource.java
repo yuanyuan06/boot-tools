@@ -3,7 +3,6 @@ package yuan.yuan.boot_tools.resourceFile;
 import java.io.IOException;
 
 import org.junit.Test;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.scripting.ScriptSource;
