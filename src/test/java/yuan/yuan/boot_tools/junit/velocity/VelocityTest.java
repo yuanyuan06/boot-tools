@@ -1,4 +1,4 @@
-package yuan.yuan.boot_tools.velocity;
+package yuan.yuan.boot_tools.junit.velocity;
 
 import java.util.HashMap;
 import java.util.Map;

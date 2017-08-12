@@ -1,4 +1,4 @@
-package yuan.yuan.boot_tools.mock;
+package yuan.yuan.boot_tools.junit.mock;
 
 
 import static org.mockito.Matchers.anyInt;

@@ -1,4 +1,4 @@
-package yuan.yuan.boot_tools.resourceFile;
+package yuan.yuan.boot_tools.junit.resourceFile;
 
 import java.io.IOException;
 

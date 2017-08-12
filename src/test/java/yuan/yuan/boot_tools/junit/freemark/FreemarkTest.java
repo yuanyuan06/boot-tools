@@ -1,4 +1,4 @@
-package yuan.yuan.boot_tools.freemark;
+package yuan.yuan.boot_tools.junit.freemark;
 
 import java.io.File;
 import java.io.IOException;

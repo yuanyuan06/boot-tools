@@ -1,4 +1,4 @@
-package yuan.yuan.boot_tools.mailTools;
+package yuan.yuan.boot_tools.junit.mailTools;
 
 import org.junit.Test;
 import org.springframework.mail.SimpleMailMessage;
