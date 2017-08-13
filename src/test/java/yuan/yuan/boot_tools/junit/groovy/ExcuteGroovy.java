@@ -52,6 +52,7 @@ public class ExcuteGroovy {
 		String s = rule.createTask(sl);
 		System.out.println(s);
 		
+		rule.createTask("fdfd");
 	}
 	
 	@Test

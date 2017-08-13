@@ -8,17 +8,17 @@ class RuleTaskTemplet implements RuleTaskService{
 
 	@Override
 	public String createTask(def so) {
-		
 		if(so instanceof TestSo) {
-			TestSo ts = ((TestSo) so);
-			ts.setField1("ewew")
+			TestSo ts = so;
+			ts.setField1("TestSo")
 			ts.getField1();
 		}else if(so instanceof TestSoLine) {
-			TestSoLine ts = ((TestSoLine) so);
-			ts.setFieldLine1("fdfdf")
+			TestSoLine ts = so;
+			ts.setFieldLine1("TestSoLine")
 			ts.getFieldLine1();
+		}else {
+			println "IllegalArgumentException";
+			throw new IllegalArgumentException();
 		}
 	}
-
-	
 }
