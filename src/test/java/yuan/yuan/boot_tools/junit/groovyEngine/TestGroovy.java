@@ -2,11 +2,18 @@ package yuan.yuan.boot_tools.junit.groovyEngine;
 
 import java.io.IOException;
 
+import org.codehaus.groovy.control.CompilerConfiguration;
 import org.junit.Test;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.scripting.ScriptSource;
+import org.springframework.scripting.support.ResourceScriptSource;
 
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 import groovy.util.GroovyScriptEngine;
+import groovy.util.ResourceException;
+import groovy.util.ScriptException;
 
 public class TestGroovy {
 
@@ -27,9 +34,21 @@ public class TestGroovy {
     
     
     @Test
-    public void testEngine() throws IOException{
+    public void testEngine() throws IOException, ResourceException, ScriptException{
         @SuppressWarnings("unused")
-        GroovyScriptEngine engine = new GroovyScriptEngine("");
+        GroovyScriptEngine engine = new GroovyScriptEngine("groovy");
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+		Resource resource = resolver.getResource("classpath:groovyScripts/RoleRuleTemplet.groovy");
+		
+		CompilerConfiguration config = new CompilerConfiguration();
+		config.setClasspath(".;‪D:\\maven\\repository\\org\\codehaus\\groovy\\groovy-all\\2.4.11\\groovy-all-2.4.11.jar;");
+		engine.setConfig(config);
+		ScriptSource source = new ResourceScriptSource(resource);
+		String scriptAsString = source.getScriptAsString();
+		System.out.println(scriptAsString);
+		Binding binding  =  new  Binding();
+		GroovyShell shell = new GroovyShell(binding);
+		shell.evaluate(scriptAsString);
     }
     
     

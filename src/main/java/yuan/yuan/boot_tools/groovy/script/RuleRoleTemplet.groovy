@@ -2,6 +2,8 @@ package yuan.yuan.boot_tools.groovy.script
 
 import java.util.List
 
+import org.codehaus.groovy.antlr.Main
+
 import yuan.yuan.boot_tools.groovy.RuleRoleService
 
 class RuleRoleTemplet implements RuleRoleService {
@@ -44,4 +46,8 @@ class RuleRoleTemplet implements RuleRoleService {
 		tasks.containsKey(incident);
 		tasks.get(incident);
 	}
-}
+	
+	static void main() {
+		println "fdfd";
+	}
+} 

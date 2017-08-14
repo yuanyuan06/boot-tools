@@ -30,6 +30,10 @@ public class ExcuteGroovy {
 		context = new ClassPathXmlApplicationContext("spring_junit_config.xml");
 	}
 	
+	public static void main(String[] args) {
+		
+	}
+	
 	@Test
 	public void test() {
 		
