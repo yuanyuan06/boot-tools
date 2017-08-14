@@ -14,10 +14,12 @@ class RuleTaskTemplet implements RuleTaskService{
 				def status 
 				((TestSo)bill).with {
 					if(field1 == "TestSo" || field2.length() == 0) {
+						field1 = "testModify";
 						for (line in lines) {
 							line.with{
 								if(fieldLine1 == "TestSo" || fieldLine2.length() ==  0) {
 									status = OrderStatusEnum.NEW.getValue();
+									fieldLine1 = "hello";
 								}else {
 									OrderStatusEnum.HANG.getValue();
 								} 

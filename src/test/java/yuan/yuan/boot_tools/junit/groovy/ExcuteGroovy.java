@@ -30,7 +30,6 @@ public class ExcuteGroovy {
 		context = new ClassPathXmlApplicationContext("spring_junit_config.xml");
 	}
 	
-	@SuppressWarnings("resource")
 	@Test
 	public void test() {
 		
@@ -56,11 +55,12 @@ public class ExcuteGroovy {
 		
 		TestSo ts = new TestSo();
 		ts.setField1("TestSo");
-		List add = new ArrayList<>();
+		List<TestSoLine> add = new ArrayList<TestSoLine>();
 		add.add(sl);
 		ts.setLines(add);
 		String so = rule.createTask(ts);
-		System.out.println(so);
+		
+		System.out.println(so+ " " + ts.getField1());
 	}
 	
 	@Test
