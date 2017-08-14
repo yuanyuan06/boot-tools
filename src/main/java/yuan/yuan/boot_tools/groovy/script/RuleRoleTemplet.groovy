@@ -25,7 +25,7 @@ class RuleRoleTemplet implements RuleRoleService {
 					];
 	
 	@Override
-	public List<String> assignRole(String task) {
+	public List<String> findRolesForTask(String task) {
 		taskRole.get(task);
 	}
 

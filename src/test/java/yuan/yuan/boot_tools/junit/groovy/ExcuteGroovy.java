@@ -34,7 +34,7 @@ public class ExcuteGroovy {
 	public void test() {
 		
 		RuleRoleService rule = (RuleRoleService) context.getBean("roleRule");
-		List<String> assignRole = rule.assignRole("任务3");
+		List<String> assignRole = rule.findRolesForTask("任务3");
 		System.out.println(JSON.toJSONString(assignRole));
 		
 		String task = rule.findTaskByIncident("事件1");

@@ -7,7 +7,7 @@ public interface RuleRoleService {
 	/**
 	 * 获取任务所属角色
 	 */
-	List<String> assignRole(String task);
+	List<String> findRolesForTask(String task);
 	
 	/**
 	 * 获取事件所属任务
