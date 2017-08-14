@@ -22,6 +22,15 @@
 	     <property name="dataSource" ref="dataSource"></property>
 	 </bean>
 	 
+	 
+	 <!-- 	 <lang:groovy id="roleRule" refresh-check-delay="2000" script-source="classpath:groovyScripts/RoleRuleTemplet.groovy"> -->
+	 <lang:groovy id="roleRule" refresh-check-delay="2000" script-source="classpath:yuan/yuan/boot_tools/groovy/script/RuleRoleTemplet.groovy">
+        <!-- <lang:property name="message" value="I Can Do The Frug" /> -->
+     </lang:groovy>
+     
+     <lang:groovy id="taskRule" refresh-check-delay="2000" script-source="classpath:yuan/yuan/boot_tools/groovy/script/RuleTaskTemplet.groovy">
+        <!-- <lang:property name="message" value="I Can Do The Frug" /> -->
+     </lang:groovy>
 </beans>
 
  
