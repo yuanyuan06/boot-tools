@@ -11,7 +11,13 @@ class RuleTaskTemplet implements RuleTaskService{
 		if(so instanceof TestSo) {
 			TestSo ts = so;
 			ts.setField1("TestSo")
-			ts.getField1();
+			ts.with {
+				if(field1 == "TestSo" || field2 == "2") {
+					"new";
+				}else {
+					"hang"
+				}
+			}
 		}else if(so instanceof TestSoLine) {
 			TestSoLine ts = so;
 			ts.setFieldLine1("TestSoLine")
