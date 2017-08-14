@@ -18,6 +18,8 @@
      <lang:groovy id="taskRule" refresh-check-delay="2000" script-source="classpath:yuan/yuan/boot_tools/groovy/script/RuleTaskTemplet.groovy">
         <!-- <lang:property name="message" value="I Can Do The Frug" /> -->
      </lang:groovy>
+     
+     
 </beans>
 
  
