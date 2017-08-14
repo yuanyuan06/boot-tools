@@ -1,6 +1,7 @@
 package yuan.yuan.boot_tools.junit.groovy;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
@@ -44,15 +45,22 @@ public class ExcuteGroovy {
 	@Test
 	public void testTaskRule() {
 		RuleTaskService rule = (RuleTaskService) context.getBean("taskRule");
-		TestSo ts = new TestSo();
-		String so = rule.createTask(ts);
-		System.out.println(so);
+		
 		
 		TestSoLine sl = new TestSoLine();
+		sl.setFieldLine2("");
 		String s = rule.createTask(sl);
 		System.out.println(s);
 		
 		rule.createTask("fdfd");
+		
+		TestSo ts = new TestSo();
+		ts.setField1("TestSo");
+		List add = new ArrayList<>();
+		add.add(sl);
+		ts.setLines(add);
+		String so = rule.createTask(ts);
+		System.out.println(so);
 	}
 	
 	@Test

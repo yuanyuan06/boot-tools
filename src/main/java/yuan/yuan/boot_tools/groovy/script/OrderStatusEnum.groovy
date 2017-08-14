@@ -14,7 +14,7 @@ package yuan.yuan.boot_tools.groovy.script
  * @author oo
  *
  */
-enum OrderStatus {
+enum OrderStatusEnum {
 
 	NEW(1),
 	HANG(2),
@@ -26,16 +26,16 @@ enum OrderStatus {
 	DEL(8),
 	CANCEl(9)
 	
-	private Integer value;
+	private int value;
 	
-	OrderStatus(status){
+	OrderStatusEnum(status){
 		this.value = status;
 	}
-    private Code(Integer value) {
+    private Code(int value) {
         this.value = value;
     }
 
-    public Integer getValue() {
+    public int getValue() {
         return value;
     }
 }

@@ -1,6 +1,7 @@
 package yuan.yuan.boot_tools.groovy;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class TestSo implements Serializable {
 	
@@ -9,6 +10,8 @@ public class TestSo implements Serializable {
 	private String field1;
 	
 	private String field2;
+	
+	private List<TestSoLine> lines;
 
 	public String getField1() {
 		return field1;
@@ -24,5 +27,13 @@ public class TestSo implements Serializable {
 
 	public void setField2(String field2) {
 		this.field2 = field2;
+	}
+
+	public List<TestSoLine> getLines() {
+		return lines;
+	}
+
+	public void setLines(List<TestSoLine> lines) {
+		this.lines = lines;
 	}
 }
