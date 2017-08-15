@@ -1,5 +1,6 @@
 package yuan.yuan.boot_tools.junit.groovyEngine;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.codehaus.groovy.control.CompilerConfiguration;
@@ -10,10 +11,12 @@ import org.springframework.scripting.ScriptSource;
 import org.springframework.scripting.support.ResourceScriptSource;
 
 import groovy.lang.Binding;
+import groovy.lang.GroovyClassLoader;
 import groovy.lang.GroovyShell;
 import groovy.util.GroovyScriptEngine;
 import groovy.util.ResourceException;
 import groovy.util.ScriptException;
+import yuan.yuan.boot_tools.groovy.RuleRoleService;
 
 public class TestGroovy {
 
@@ -46,9 +49,27 @@ public class TestGroovy {
 		ScriptSource source = new ResourceScriptSource(resource);
 		String scriptAsString = source.getScriptAsString();
 		System.out.println(scriptAsString);
-		Binding binding  =  new  Binding();
-		GroovyShell shell = new GroovyShell(binding);
-		shell.evaluate(scriptAsString);
+    }
+    
+    @Test
+    public void testGroovyObject() throws IOException, InstantiationException, IllegalAccessException {
+    	
+    	PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+		Resource resource = resolver.getResource("classpath:groovyScripts/RuleRoleTemplet.groovy");
+    	 GroovyClassLoader loader= new GroovyClassLoader();
+    	  
+         while(true){
+        	 long lastModified = resource.lastModified();
+        	 System.out.println(lastModified);
+        	 ScriptSource source = new ResourceScriptSource(resource);
+        	 String scriptAsString = source.getScriptAsString();
+        	 Class fileCreator =loader.parseClass(scriptAsString);
+        	 RuleRoleService rule = (RuleRoleService) fileCreator.newInstance();
+        	 String findTaskByIncident = rule.findTaskByIncident("事件1");
+        	 System.out.println(findTaskByIncident);
+         }
+     
+    	
     }
     
     
