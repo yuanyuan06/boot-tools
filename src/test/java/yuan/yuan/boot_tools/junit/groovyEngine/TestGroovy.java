@@ -1,6 +1,5 @@
 package yuan.yuan.boot_tools.junit.groovyEngine;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.codehaus.groovy.control.CompilerConfiguration;
@@ -64,9 +63,14 @@ public class TestGroovy {
         	 ScriptSource source = new ResourceScriptSource(resource);
         	 String scriptAsString = source.getScriptAsString();
         	 Class fileCreator =loader.parseClass(scriptAsString);
+        	 System.out.println(fileCreator.getSuperclass());
+        	 System.out.println(fileCreator.getSimpleName());
+        	 System.out.println(fileCreator.getName());
         	 RuleRoleService rule = (RuleRoleService) fileCreator.newInstance();
         	 String findTaskByIncident = rule.findTaskByIncident("事件1");
         	 System.out.println(findTaskByIncident);
+        	 
+        	 
          }
      
     	
